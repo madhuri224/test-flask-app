@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: myapp
-          image: myacr.azurecr.io/myapp:latest  # Will be replaced dynamically
+          image: myacrregistry12.azurecr.io/mytestapp:latest  # Will be replaced dynamically
           ports:
             - containerPort: 8000
 ---
