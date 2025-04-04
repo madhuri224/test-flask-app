@@ -36,3 +36,7 @@ steps:
     tags: |
       latest
       $(Build.BuildId)
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: 'manifests'
+    ArtifactName: 'manifests'
