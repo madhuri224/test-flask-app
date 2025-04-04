@@ -25,7 +25,7 @@ steps:
     containerRegistry: 'myacrregistry12'
     repository: 'mytestapp'
     command: 'buildAndPush'
-    dockerfile: 'Dockerfile'
+    dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
     tags: |
       latest
       $(Build.BuildId)
