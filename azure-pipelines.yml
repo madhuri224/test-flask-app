@@ -18,8 +18,15 @@ steps:
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
 
-- script: ls -lR
-  displayName: "List all files in workspace"
+- script: |
+    echo "Current working directory:"
+    pwd
+    echo "Listing all files in the current directory:"
+    ls -al
+    echo "Searching for Dockerfile:"
+    find . -name "Dockerfile"
+  displayName: 'Debug: Check Dockerfile Location'
+   
 - task: Docker@2
   inputs:
     containerRegistry: 'myacrregistry12'
