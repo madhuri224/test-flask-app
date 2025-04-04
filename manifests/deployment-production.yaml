@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp-production
+spec:
+  replicas: 3  # Typically, you'd run more replicas in production for high availability
+  selector:
+    matchLabels:
+      app: myapp-production
+  template:
+    metadata:
+      labels:
+        app: myapp-production
+    spec:
+      containers:
+        - name: myapp-production
+          image: myacrregistry12.azurecr.io/mytestapp:latest  # Production image tag
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              memory: "512Mi"
+              cpu: "500m"
+            limits:
+              memory: "1Gi"
+              cpu: "1"
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: myapp-production-service
+spec:
+  selector:
+    app: myapp-production
+  type: LoadBalancer  # For external access to the app
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
