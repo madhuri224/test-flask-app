@@ -40,3 +40,8 @@ steps:
   inputs:
     PathtoPublish: 'manifests'
     ArtifactName: 'manifests'
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: $(Build.SourcesDirectory)/manifests
+    ArtifactName: 'drop'
+    publishLocation: 'Container'    
