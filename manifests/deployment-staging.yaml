@@ -13,8 +13,8 @@ spec:
         app: myapp-staging
     spec:
       containers:
-        - name: myapp-staging
-          image: myacrregistry12.azurecr.io/mytestapp:latest  # Use staging image
+        - name: myapp
+          image: myacrregistry12.azurecr.io/mytestapp:latest
           ports:
             - containerPort: 8000
 ---
