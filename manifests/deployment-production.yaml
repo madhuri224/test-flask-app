@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: myapp-production
-          image: myacrregistry12.azurecr.io/mytestapp:latest  # Production image tag
+          image: myacrregistry12.azurecr.io/mytestapp:staging # Production image tag
           ports:
             - containerPort: 80
           resources:
